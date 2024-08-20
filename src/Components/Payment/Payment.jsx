@@ -55,7 +55,7 @@ export default function Payment() {
       )
 
       .then(({ data }) => {
-        navgite("/allOrders");
+        navgite("/allorders");
         setIsloadingCash(false);
       })
       .catch(({ response }) => {
