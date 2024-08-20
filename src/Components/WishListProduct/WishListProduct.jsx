@@ -37,7 +37,7 @@ export default function WishListProduct({
       <div className="flex justify-start items-center w-full sm:w-1/2 mb-2">
         <img
           src={product.imageCover}
-          className="w-1/2 sm:w-1/3 h-fit  rounded me-6 "
+          className="w-1/2 sm:w-1/3   rounded me-6 "
           alt=""
         />
         <div className="w-1/2 sm:w-2/3 ">
