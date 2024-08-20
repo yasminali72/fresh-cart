@@ -33,48 +33,48 @@ export default function WishListProduct({
 
   return (
     <>
-      <div className="flex w-full justify-between items-center py-3 ">
-        <div className="flex justify-start items-center w-1/2 ">
-          <img
-            src={product.imageCover}
-            className="w-1/3 h-fit  rounded me-6 "
-            alt=""
-          />
-          <div className=" ">
-            <h1 className="">{product.title}</h1>
-            {product.priceAfterDiscount ? (
-              <div className="flex">
-                <h1 className="text-green-600 font-bold text-xl">
-                  <span className="text-gray-400 line-through">
-                    ${product.price}
-                  </span>{" "}
-                  ${product.priceAfterDiscount}
-                </h1>
-              </div>
-            ) : (
+    <div className="flex w-full justify-between flex-wrap items-center py-3 ">
+      <div className="flex justify-start items-center w-full sm:w-1/2 mb-2">
+        <img
+          src={product.imageCover}
+          className="w-1/2 sm:w-1/3 h-fit  rounded me-6 "
+          alt=""
+        />
+        <div className="w-1/2 sm:w-2/3 ">
+          <h1 className="">{product.title}</h1>
+          {product.priceAfterDiscount ? (
+            <div className="flex">
               <h1 className="text-green-600 font-bold text-xl">
-                ${product.price}
+                <span className="text-gray-400 line-through">
+                  ${product.price}
+                </span>{" "}
+                ${product.priceAfterDiscount}
               </h1>
-            )}
-            <p
-              onClick={() => removeProductFromWishList(product.id)}
-              className="text-red-500 "
-              role="button"
-            >
-              <i className="fa-solid fa-trash me-1"></i>
-              <span>Remove</span>
-            </p>
-          </div>
+            </div>
+          ) : (
+            <h1 className="text-green-600 font-bold text-xl">
+              ${product.price}
+            </h1>
+          )}
+          <p
+            onClick={() => removeProductFromWishList(product.id)}
+            className="text-red-500 "
+            role="button"
+          >
+            <i className="fa-solid fa-trash me-1"></i>
+            <span>Remove</span>
+          </p>
         </div>
-        <button
-          onClick={() => addProductsToCart(product.id)}
-          className="p-2 rounded border-main border-2 hover:text-white hover:bg-main dark:bg-main dark:hover:bg-white dark:hover:text-main"
-        >
-          Add to Cart
-        </button>
       </div>
-      <hr />
+      <button
+        onClick={() => addProductsToCart(product.id)}
+        className="p-2 rounded border-main border-2 hover:text-white hover:bg-main dark:bg-main dark:hover:bg-white dark:hover:text-main"
+      >
+        Add to Cart
+      </button>
+    </div>
+    <hr />
 
-    </>
+  </>
   );
 }
