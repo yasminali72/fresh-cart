@@ -53,7 +53,7 @@ export default function Orders() {
                   {order.cartItems.map((item, index) => (
                     <div
                       key={index}
-                      class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
+                      class="border-b border-gray-200 mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full"
                     >
                       <div class="pb-4 md:pb-8 w-full md:w-40">
                         <img
@@ -62,29 +62,27 @@ export default function Orders() {
                           alt={item.product.title}
                         />
                       </div>
-                      <div class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
+                      <div class=" md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
                         <div class="w-full flex flex-col justify-start items-start space-y-8">
-                          {/* <h3 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">
-                            Premium Quaility Dress
-                          </h3> */}
+                         
                           <div class="flex justify-start items-start flex-col space-y-2">
                             <p class="text-sm dark:text-white leading-none text-gray-800">
                               <span class="dark:text-gray-400 text-gray-300">
-                                Style:{" "}
+                                Style:
                               </span>
-                              {item.product.title}{" "}
+                              {item.product.title}
                             </p>
                             <p class="text-sm dark:text-white leading-none text-gray-800">
                               <span class="dark:text-gray-400 text-gray-300">
-                                Brand:{" "}
+                                Brand:
                               </span>
-                              {item.product.brand.name}{" "}
+                              {item.product.brand.name}
                             </p>
                           </div>
                         </div>
                         <div class="flex justify-between space-x-8 items-start w-full">
                           <p class="text-base dark:text-white xl:text-lg leading-6">
-                            ${item.price}{" "}
+                            ${item.price}
                           </p>
                           {item.count < 10 ? (
                             <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
@@ -94,7 +92,7 @@ export default function Orders() {
                             <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
                               {item.count}
                             </p>
-                          )}{" "}
+                          )}
                           <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
                             ${item.price * item.count}
                           </p>
@@ -103,7 +101,7 @@ export default function Orders() {
                     </div>
                   ))}
                 </div>
-                <div class="flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
+                <div class="flex justify-center flex-col md:flex-row  items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
                   <div class="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
                     <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">
                       Summary
@@ -119,7 +117,7 @@ export default function Orders() {
                       </div>
                       <div class="flex justify-between items-center w-full">
                         <p class="text-base dark:text-white leading-4 text-gray-800">
-                          tax{" "}
+                          tax
                         </p>
                         <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
                           ${order.taxPrice}
@@ -149,30 +147,30 @@ export default function Orders() {
                     </h3>
                     <div class="flex flex-col justify-start  w-full">
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Name:{" "}
+                        Name:
                         <span class="font-normal capitalize">
                           {order.user.name}
                         </span>
                       </p>
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Email:{" "}
+                        Email:
                         <span class="font-normal">{order.user.email}</span>
                       </p>
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Phone:{" "}
+                        Phone:
                         <span class="font-normal">
                           {order.shippingAddress.phone}
                         </span>
                       </p>
 
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        City:{" "}
+                        City:
                         <span class="font-normal capitalize">
                           {order.shippingAddress.city}
                         </span>
                       </p>
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Address Details:{" "}
+                        Address Details:
                         <span class="font-normal capitalize">
                           {order.shippingAddress.details}
                         </span>
