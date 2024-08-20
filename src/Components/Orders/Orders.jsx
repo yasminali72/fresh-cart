@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { formatNumber } from "../../currency";
 import OrderProgress from "../OrderProgress/OrderProgress";
 import Loading from "../Loading/Loading";
+import { Helmet } from "react-helmet";
 
 export default function Orders() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +33,9 @@ export default function Orders() {
   }
   return (
     <>
+    <Helmet>
+      <title>All Orders</title>
+    </Helmet>
       {orders?.map((order, index) => {
         return (
           <div key={index} className="my-5">
