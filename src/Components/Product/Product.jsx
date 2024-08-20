@@ -32,7 +32,7 @@ export default function Product({ product, idProdWishList }) {
         <div className="bg-white hover:shadow-3xl hover:shadow-main rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 h-full">
           <Link to={"/productDetails/" + product._id}>
             <img
-              className="rounded-t-lg  w-full h-52 object-cover "
+              className="rounded-t-lg  w-full h-52 object-contain "
               src={product.imageCover}
               alt="product image"
             />

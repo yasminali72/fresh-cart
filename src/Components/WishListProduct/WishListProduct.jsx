@@ -34,13 +34,13 @@ export default function WishListProduct({
   return (
     <>
     <div className="flex w-full justify-between flex-wrap items-center py-3 ">
-      <div className="flex justify-start items-center w-full sm:w-1/2 mb-2">
+      <div className="flex justify-start items-center w-full sm:w-2/3 mb-2 ">
         <img
           src={product.imageCover}
-          className="w-1/2 sm:w-1/3 h-52  rounded me-6 "
+          className="w-48 h-48  rounded me-6 "
           alt=""
         />
-        <div className="w-1/2 sm:w-2/3 ">
+        <div className="w-1/2  ">
           <h1 className="">{product.title}</h1>
           {product.priceAfterDiscount ? (
             <div className="flex">

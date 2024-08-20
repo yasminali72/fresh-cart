@@ -122,7 +122,7 @@ export default function Cart() {
             <div className=" text-center">
               <button
                 onClick={clearCart}
-                className="bg-red-600 hover:bg-red-500 focus:shadow-md focus:shadow-red-200 p-2 rounded-md text-white "
+                className="bg-red-600 hover:bg-red-500 focus:shadow-md focus:shadow-red-200 p-2 mt-5 rounded-md text-white "
               >
                 Clear Cart
               </button>

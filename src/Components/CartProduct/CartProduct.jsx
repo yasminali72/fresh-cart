@@ -67,7 +67,7 @@ export default function CartProduct({
     <>
       <tr>
         <td className="py-4 ">
-          <div className="flex items-center ">
+          <div className="flex flex-wrap items-center ">
             <img
               className="h-32 w-32 mr-4 "
               src={product.product.imageCover}
@@ -78,7 +78,7 @@ export default function CartProduct({
             </span>
           </div>
         </td>
-        <td className="py-4">${product.price}</td>
+        <td className="px-2">${product.price}</td>
         <td className="py-4">
           <div className="flex items-center">
             <button
@@ -121,10 +121,10 @@ export default function CartProduct({
             </button>
           </div>
         </td>
-        <td className="py-4">${product.price * product.count}</td>
+        <td className="px-2">${product.price * product.count}</td>
         <td>
           <i
-            className="fa-solid fa-trash text-main"
+            className="fa-solid fa-trash text-main ml-3"
             role="button"
             onClick={() => deleteProdectFromCart(product.product._id)}
           ></i>
