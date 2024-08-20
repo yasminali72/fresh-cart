@@ -120,7 +120,7 @@ const queryClient=new QueryClient()
           ),
         },
         {
-          path: "allOrders",
+          path: "allorders",
           element: (
             <ProductedRoute>
               <Orders />
