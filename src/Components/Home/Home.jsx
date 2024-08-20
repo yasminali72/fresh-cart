@@ -92,8 +92,8 @@ export default function Home() {
         <title>Home</title>
       </Helmet>
       <div>
-      <div className="flex flex-wrap lg:flex-nowrap w-full  mx-auto mb-10 lg:h-96">
-  <div className="slider-container  w-full sm:w-2/3 lg:w-3/4 h-full overflow-hidden">
+      <div className="flex flex-wrap lg:flex-nowrap w-full  mx-auto mb-10 h-80">
+  <div className="slider-container  w-full  xl:w-3/4 h-full overflow-hidden">
     <Slider {...settings}>
       <div className="h-full">
         <img src={img3} alt="" className="h-full w-full object-cover rounded-l-md" />
@@ -106,7 +106,7 @@ export default function Home() {
       </div>
     </Slider>
   </div>
-  <div className=" w-full sm:w-1/3 lg:w-1/4 h-full lg:pb-5   z-10">
+  <div className="hidden xl:block xl:w-1/4 h-full   z-10">
     <img src={img4} className="w-full h-1/2 object-cover rounded-tr-md  lg:mb-0 lg:rounded-tr-none" alt="" />
     <img src={img5} className="w-full h-1/2 object-cover rounded-br-md lg:rounded-br-none " alt="" />
   </div>
