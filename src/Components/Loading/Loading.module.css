@@ -1,0 +1,20 @@
+.loader {
+    @apply text-main font-bold text-6xl relative box-border space-x-[2px] inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  .loader::after {
+    @apply text-thrid absolute left-0 top-0 w-full h-full overflow-hidden box-border   ;
+    content: 'FreshCart';
+    
+    animation: animloader 6s linear infinite;
+  }
+  
+  @keyframes animloader {
+    0% {
+      height: 100%;
+    }
+    100% {
+      height: 0%;
+    }
+  }

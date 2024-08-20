@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background-color: white;
+  --text-color: black;
+}
+
+.dark {
+  --background-color: #1a202c; /* Dark background */
+  --text-color: white; /* Dark text */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.active {
+  color: #d14d72;
+  @apply font-bold text-lg ;
+}
+.links li:hover {
+  color: #d14d72;
+}
+
+.add {
+  transform: translateY(170%);
+  transition: all 1s;
+}
+.productCard:hover .add {
+  transform: translateY(0);
+}
