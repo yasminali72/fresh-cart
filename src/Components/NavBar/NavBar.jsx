@@ -1,7 +1,7 @@
 
 
 import React, { useContext, useState, useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthContext";
 
 export default function NavBar() {
@@ -9,6 +9,12 @@ export default function NavBar() {
   const [darkMode, setDarkMode] = useState(false);
   const { userToken, setUserToken } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation(); // Track the current route
+
+  useEffect(() => {
+    // Scroll to the top whenever the route changes
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     const savedMode = localStorage.getItem("darkMode");
@@ -29,7 +35,9 @@ export default function NavBar() {
     localStorage.removeItem("token");
     navigate("/login");
   }
-
+function close(){
+  setIsOpen(false)
+}
   return (
     <>
       <div className="fixed flex items-center justify-between py-3 px-8 bg-white dark:bg-gray-800 shadow-md w-full overflow-hidden z-[990] top-0">
@@ -135,29 +143,29 @@ export default function NavBar() {
       <div
         className={
           isOpen
-            ? "mobile-menu bg-[#F4D9D0] dark:bg-gray-700 mt-14 p-1 md:hidden"
+            ? "mobile-menu bg-[#F4D9D0] dark:bg-gray-700 mt-14 p-1 md:hidden z-50 fixed w-full top-0"
             : "mobile-menu hidden md:hidden"
         }
       >
         <ul className="space-y-4">
           {userToken && (
             <>
-              <li>
+              <li onClick={close}>
                 <NavLink to={""} className="">Home</NavLink>
               </li>
-              <li>
+              <li onClick={close}>
                 <NavLink to={"products"} className="">Products</NavLink>
               </li>
-              <li>
+              <li onClick={close}>
                 <NavLink to={"categories"} className="">Categories</NavLink>
               </li>
-              <li>
+              <li onClick={close}>
                 <NavLink to={"brands"} className="">Brands</NavLink>
               </li>
-              <li>
+              <li onClick={close}>
                 <NavLink to={"cart"} className="">Cart</NavLink>
               </li>
-              <li>
+              <li onClick={close}>
                 <NavLink to={"wishList"} className="">Wish List</NavLink>
               </li>
             </>

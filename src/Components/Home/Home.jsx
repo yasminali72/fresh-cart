@@ -92,7 +92,7 @@ export default function Home() {
         <title>Home</title>
       </Helmet>
       <div>
-      <div className="flex flex-wrap lg:flex-nowrap w-full  mx-auto mb-10 h-80">
+      <div className="flex flex-wrap lg:flex-nowrap w-full  mx-auto mb-10 xl:h-80 ">
   <div className="slider-container  w-full  xl:w-3/4 h-full overflow-hidden">
     <Slider {...settings}>
       <div className="h-full">
