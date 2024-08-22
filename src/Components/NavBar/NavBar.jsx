@@ -61,11 +61,15 @@ function close(){
               <li>
                 <NavLink to={"brands"} className="">Brands</NavLink>
               </li>
+              
+              <li>
+                <NavLink to={"wishList"} className="">Wish List</NavLink>
+              </li>
               <li>
                 <NavLink to={"cart"} className="">Cart</NavLink>
               </li>
               <li>
-                <NavLink to={"wishList"} className="">Wish List</NavLink>
+                <NavLink to={"allorders"} className="">All Orders</NavLink>
               </li>
             </ul>
           </div>
@@ -110,12 +114,12 @@ function close(){
             <li>
               <button
                 onClick={toggleDarkMode}
-                className=" dark:text-gray-400 hover:bg-gray-200 p-2 rounded-xl text-xl"
+                className=" dark:text-gray-400  "
               >
                 {darkMode ? (
-                  <i className="fa-solid fa-moon"></i>
+                  <i className="fa-solid fa-moon  hover:bg-gray-300 px-2 py-1 rounded text-xl"></i>
                 ) : (
-                  <i className="fa-solid fa-sun"></i>
+                  <i className="fa-solid fa-sun hover:bg-gray-100 px-2 py-1 rounded text-xl"></i>
                 )}
               </button>
             </li>
@@ -162,11 +166,15 @@ function close(){
               <li onClick={close}>
                 <NavLink to={"brands"} className="">Brands</NavLink>
               </li>
+              
+              <li onClick={close}>
+                <NavLink to={"wishList"} className="">Wish List</NavLink>
+              </li>
               <li onClick={close}>
                 <NavLink to={"cart"} className="">Cart</NavLink>
               </li>
               <li onClick={close}>
-                <NavLink to={"wishList"} className="">Wish List</NavLink>
+                <NavLink to={"allorders"} className="">All Orders</NavLink>
               </li>
             </>
           )}
