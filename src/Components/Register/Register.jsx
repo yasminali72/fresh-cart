@@ -42,50 +42,7 @@ export default function Register() {
           .matches(/^\+?\d{10,15}$/, "Phone not valid"),
       }),
     });
-  // validation
-  // function validateDate(values){
-  // let errors={}
-  // if(values.name===''){
-  //     errors.name='Name is requrie'
 
-  // }
-  // else if(values.name.length<3){
-  //     errors.name='Name length must be at least 3 chars'
-  // }
-  // else if(values.name.length>20){
-  //     errors.name='Name length must be at less then 20 chars'
-  // }
-  //  if(values.email===''){
-  //     errors.email='Email is requrie'
-
-  // }
-  // else if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)){
-  //     errors.email='Email is invalid'
-  // }
-  // else if(values.password===''){
-  //     errors.password='Password is requrie'
-
-  // }
-  //  if(!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(values.password)){
-  // errors.password='Minimum eight characters, at least one uppercase letter, one lowercase letter and one number'
-  // }
-  //  if(values.rePassword===''){
-  //     errors.rePassword='rePassword is requrie'
-
-  // }
-  // else if(! (values.rePassword===values.password)){
-  // errors.rePassword='Password and Repassword not matched'
-  // }
-  //  if(values.phone===''){
-  //     errors.phone='Phone is requrie'
-
-  // }
-  //  else if(! /^\+?\d{10,15}$/.test(values.phone)){
-  //     errors.phone='Invalid'
-
-  // }
-  // return errors
-  // }
 
   async function register() {
     setErrorMsg("");
