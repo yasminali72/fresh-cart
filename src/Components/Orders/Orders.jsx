@@ -6,37 +6,35 @@ import { formatNumber } from "../../currency";
 import OrderProgress from "../OrderProgress/OrderProgress";
 import Loading from "../Loading/Loading";
 import { Helmet } from "react-helmet";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Orders() {
-  const [isLoading, setIsLoading] = useState(false);
   const { id } = jwtDecode(localStorage.getItem("token"));
-  const [orders, setOrders] = useState([]);
 
   function date(timestamp) {
     const date = new Date(timestamp);
     return date.toLocaleString();
   }
 
-  useEffect(() => {
-    getUserOrders();
-  }, []);
 
-  async function getUserOrders() {
-    setIsLoading(true);
-    await axios
+   function getUserOrders() {
+    return axios
       .get(`https://ecommerce.routemisr.com/api/v1/orders/user/` + id)
-      .then(({ data }) => {
-        setIsLoading(false);
-        setOrders(data);
-      })
-      .catch((err) => setIsLoading(false));
+      
   }
+ let{data,isLoading}= useQuery({
+    queryKey:['orders'],
+    queryFn:getUserOrders,
+    select:(data)=>(data.data)
+    
+  })
+  console.log(data);
   return (
     <>
     <Helmet>
       <title>All Orders</title>
     </Helmet>
-      {orders?.map((order, index) => {
+      {data?.map((order, index) => {
         return (
           <div key={index} className="my-5">
             <div class="flex justify-start item-start space-y-2 flex-col">
