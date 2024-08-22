@@ -28,6 +28,7 @@ export default function NavBar() {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle("dark", !darkMode);
     localStorage.setItem("darkMode", !darkMode);
+    setIsOpen(false)
   }
 
   function signOut() {
