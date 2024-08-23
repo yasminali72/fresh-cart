@@ -9,7 +9,7 @@ export default function VerifyResetCode() {
   let navigate = useNavigate();
 
   const [isloadingVerify, setIsloadingVerify] = useState(false);
-  const [isloadingForAnotherCode, setIsloadingForAnotherCode] = useState(false);
+  const [isloadingForResend, setIsloadingForResend] = useState(false);
 
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
@@ -77,8 +77,8 @@ const Values={
   'email': localStorage.getItem('userEmail')
 }
 
-async function sendAnotherCode(){
-  setIsloadingForAnotherCode(true);
+async function sendResend(){
+  setIsloadingForResend(true);
   await axios
       .post(
         "https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords",
@@ -86,14 +86,14 @@ async function sendAnotherCode(){
       )
       
       .then(({ data }) => {
-        setIsloadingForAnotherCode(false)
+        setIsloadingForResend(false)
         console.log(data);
         setTimeLeft(10*60)
 setErrorMsg('')
         setSuccessMsg(data.message);
       })
       .catch(({ response }) => {
-        setIsloadingForAnotherCode(false);
+        setIsloadingForResend(false);
         setErrorMsg(response.data.message);
       });
 }
@@ -150,7 +150,7 @@ setErrorMsg('')
         >
           Verify Code {isloadingVerify && <i className="fas fa-spinner fa-spin"></i>}
         </button>
-        {timeLeft==0&& <button onClick={sendAnotherCode} disabled={isloadingForAnotherCode} className="bg-main  font-medium hover:bg-sec hover:text-main text-white py-2 px-4 mt-2  rounded-md shadow-sm capitalize disabled:bg-gray-500 disabled:cursor-not-allowed disabled:hover:text-white">send anthor code {isloadingForAnotherCode && <i className="fas fa-spinner fa-spin"></i>}
+        {timeLeft==0&& <button onClick={sendResend} disabled={isloadingForResend} className="bg-main  font-medium hover:bg-sec hover:text-main text-white py-2 px-4 mt-2  rounded-md shadow-sm capitalize disabled:bg-gray-500 disabled:cursor-not-allowed disabled:hover:text-white">Resend code {isloadingForResend && <i className="fas fa-spinner fa-spin"></i>}
 </button>}
       </form>
       
