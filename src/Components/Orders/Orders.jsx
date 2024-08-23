@@ -28,7 +28,7 @@ export default function Orders() {
     select:(data)=>(data.data)
     
   })
-  console.log(data);
+ 
   return (
     <>
     <Helmet>

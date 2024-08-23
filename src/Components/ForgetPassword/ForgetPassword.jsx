@@ -39,7 +39,6 @@ export default function ForgetPassword() {
       )
       .then(({ data }) => {
         setIsloading(false);
-        console.log(data);
 
         setSucessMsg(data.message);
         setTimeout(() => {

@@ -87,7 +87,6 @@ async function sendResend(){
       
       .then(({ data }) => {
         setIsloadingForResend(false)
-        console.log(data);
         setTimeLeft(10*60)
 setErrorMsg('')
         setSuccessMsg(data.message);
