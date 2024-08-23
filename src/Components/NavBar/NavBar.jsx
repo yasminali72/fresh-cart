@@ -108,7 +108,7 @@ function close(){
               </>
             )}
             {userToken && (
-              <li className="text-center p-2 rounded text-white bg-main hover:bg-thrid hover:text-main">
+              <li className=" text-center p-2 rounded text-white bg-main hover:bg-thrid hover:text-main">
                 <button onClick={signOut}>SignOut</button>
               </li>
             )}
@@ -179,23 +179,25 @@ function close(){
               </li>
             </>
           )}
-          <div className="flex flex-row space-x-2">
+          <div className="flex flex-col justify-center items-center  ">
             {!userToken && (
               <>
-                <li className="w-1/6 text-center p-1 rounded bg-main hover:bg-thrid hover:text-main">
+                <li onClick={close} className="w-1/5 p-1 my-2 text-center  rounded bg-main hover:bg-thrid hover:text-main">
                   <Link to={"login"}>Login</Link>
                 </li>
-                <li className="w-1/6 text-center p-1 rounded bg-main hover:bg-thrid hover:text-main">
+                <li onClick={close} className="w-1/5 p-1 my-2 text-center  rounded bg-main hover:bg-thrid hover:text-main">
                   <Link to={"register"}>Register</Link>
                 </li>
               </>
             )}
             {userToken && (
-              <li className="w-1/6 text-center p-1 rounded bg-main hover:bg-thrid hover:text-main">
+              <li onClick={close} className="w-full text-center p-1 rounded bg-main hover:bg-thrid hover:text-main">
                 <button onClick={signOut}>SignOut</button>
               </li>
             )}
-            <li className=" dark:text-gray-400 hover:bg-gray-200 p-1 rounded-lg text-lg">
+           
+          </div>
+          <li className="w-7 dark:text-gray-400 hover:bg-gray-200 p-1 rounded-lg text-lg">
               <button
                 onClick={toggleDarkMode}
                 className="text-dark  "
@@ -207,7 +209,6 @@ function close(){
                 )}
               </button>
             </li>
-          </div>
           <div className="space-x-2 text-main dark:text-white">
             <Link to={""}>
               <i className="fa-brands fa-facebook hover:opacity-75 dark:hover:text-main"></i>
