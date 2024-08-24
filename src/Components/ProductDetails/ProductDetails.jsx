@@ -74,7 +74,7 @@ export default function ProductDetails() {
                   {productDetails?.title}
                 </h1>
                 <span className="text-gray-500 mt-3">
-                  ${productDetails?.price}
+                  EGP {productDetails?.price}
                 </span>
                 <hr className="my-3" />
 

@@ -57,7 +57,7 @@ export default function Product({ product, idProdWishList }) {
             <RatingStar rating={product.ratingsAverage} />
 
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              ${product.price}
+              EGP {product.price}
             </span>
 
             <button

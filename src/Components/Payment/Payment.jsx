@@ -76,7 +76,8 @@ export default function Payment() {
           headers: {
             token: localStorage.getItem("token"),
           },
-          params: { url: "http://fresh-cart-lyart-six.vercel.app/" },
+          // params: { url: "http://localhost:5173" },
+          params: { url: "http://fresh-cart-lyart-six.vercel.app" },
         }
       )
 

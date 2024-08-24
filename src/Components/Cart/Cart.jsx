@@ -27,8 +27,12 @@ export default function Cart() {
       .catch(() => {
         setIsLoading(false);
       });
-
-    setProductsCart(data);
+if(data.numOfCartItems>0){
+  setProductsCart(data);
+}
+ else{
+  setProductsCart(null)
+ }   
 
     setIsLoading(false);
   }
@@ -92,22 +96,22 @@ export default function Cart() {
                   <div className="flex justify-between mb-2">
                     <span>Subtotal</span>
                     <span>
-                      ${formatNumber(productsCart?.data.totalCartPrice)}
+                      EGP {formatNumber(productsCart?.data.totalCartPrice)}
                     </span>
                   </div>
                   <div className="flex justify-between mb-2">
                     <span>Taxes</span>
-                    <span>$0.00</span>
+                    <span>EGP 0.00</span>
                   </div>
                   <div className="flex justify-between mb-2">
                     <span>Shipping</span>
-                    <span>$0.00</span>
+                    <span>EGP 0.00</span>
                   </div>
                   <hr className="my-2" />
                   <div className="flex justify-between mb-2">
                     <span className="font-semibold">Total</span>
                     <span className="font-semibold">
-                      ${formatNumber(productsCart?.data.totalCartPrice)} USD
+                      EGP {formatNumber(productsCart?.data.totalCartPrice)} 
                     </span>
                   </div>
                   <Link

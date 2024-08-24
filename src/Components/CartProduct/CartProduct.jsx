@@ -78,7 +78,7 @@ export default function CartProduct({
             </span>
           </div>
         </td>
-        <td className="px-2">${product.price}</td>
+        <td className="px-2">EGP {product.price}</td>
         <td className="py-4">
           <div className="flex items-center">
             <button
@@ -121,7 +121,7 @@ export default function CartProduct({
             </button>
           </div>
         </td>
-        <td className="px-2">${product.price * product.count}</td>
+        <td className="px-2">EGP {product.price * product.count}</td>
         <td>
           <i
             className="fa-solid fa-trash text-main ml-3"

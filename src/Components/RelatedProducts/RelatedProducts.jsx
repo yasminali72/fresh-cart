@@ -76,7 +76,7 @@ export default function RelatedProducts({ relatedProducts }) {
                         {product.title}
                       </h3>
                     </Link>
-                    <span className="text-black mt-2 dark:text-gray-400">${product.price}</span>
+                    <span className="text-black mt-2 dark:text-gray-400">EGP {product.price}</span>
                   </div>
                 </div>
               </div>
