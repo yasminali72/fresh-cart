@@ -84,7 +84,7 @@ export default function Orders() {
                         </div>
                         <div class="flex justify-between space-x-8 items-start w-full">
                           <p class="text-base dark:text-white xl:text-lg leading-6">
-                            EGP {item.price}
+                          <sup className="font-normal text-base ">EGP</sup>{item.price}
                           </p>
                           {item.count < 10 ? (
                             <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
@@ -96,7 +96,7 @@ export default function Orders() {
                             </p>
                           )}
                           <p class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
-                            EGP {item.price * item.count}
+                          <sup className="font-normal text-base ">EGP</sup>{formatNumber(item.price * item.count)}
                           </p>
                         </div>
                       </div>
@@ -114,7 +114,7 @@ export default function Orders() {
                           Subtotal
                         </p>
                         <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
-                          EGP {order.totalOrderPrice}
+                        <sup className="font-normal text-base ">EGP</sup>{formatNumber(order.totalOrderPrice)}
                         </p>
                       </div>
                       <div class="flex justify-between items-center w-full">
@@ -122,7 +122,7 @@ export default function Orders() {
                           tax
                         </p>
                         <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
-                          EGP {order.taxPrice}
+                        <sup className="font-normal text-base ">EGP</sup>{order.taxPrice}
                         </p>
                       </div>
                       <div class="flex justify-between items-center w-full">
@@ -130,7 +130,7 @@ export default function Orders() {
                           Shipping
                         </p>
                         <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
-                          EGP {order.shippingPrice}
+                        <sup className="font-normal text-base ">EGP</sup>{order.shippingPrice}
                         </p>
                       </div>
                     </div>
@@ -139,7 +139,7 @@ export default function Orders() {
                         Total
                       </p>
                       <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                        EGP {formatNumber(order.totalOrderPrice)}
+                      <sup className="font-normal text-base ">EGP</sup>{formatNumber(order.totalOrderPrice)}
                       </p>
                     </div>
                   </div>
@@ -149,31 +149,26 @@ export default function Orders() {
                     </h3>
                     <div class="flex flex-col justify-start  w-full">
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Name:
-                        <span class="font-normal capitalize">
+                        Name: <span class="font-normal capitalize">
                           {order.user.name}
                         </span>
                       </p>
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Email:
-                        <span class="font-normal">{order.user.email}</span>
+                        Email: <span class="font-normal">{order.user.email}</span>
                       </p>
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Phone:
-                        <span class="font-normal">
+                        Phone: <span class="font-normal">
                           {order.shippingAddress.phone}
                         </span>
                       </p>
 
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        City:
-                        <span class="font-normal capitalize">
+                        City: <span class="font-normal capitalize">
                           {order.shippingAddress.city}
                         </span>
                       </p>
                       <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                        Address Details:
-                        <span class="font-normal capitalize">
+                        Address Details: <span class="font-normal capitalize">
                           {order.shippingAddress.details}
                         </span>
                       </p>

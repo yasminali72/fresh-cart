@@ -96,22 +96,22 @@ if(data.numOfCartItems>0){
                   <div className="flex justify-between mb-2">
                     <span>Subtotal</span>
                     <span>
-                      EGP {formatNumber(productsCart?.data.totalCartPrice)}
+                    <sup className="font-normal text-base ">EGP</sup>{formatNumber(productsCart?.data.totalCartPrice)}
                     </span>
                   </div>
                   <div className="flex justify-between mb-2">
                     <span>Taxes</span>
-                    <span>EGP 0.00</span>
+                    <span><sup className="font-normal text-base ">EGP</sup>0.00</span>
                   </div>
                   <div className="flex justify-between mb-2">
                     <span>Shipping</span>
-                    <span>EGP 0.00</span>
+                    <span><sup className="font-normal text-base ">EGP</sup>0.00</span>
                   </div>
                   <hr className="my-2" />
                   <div className="flex justify-between mb-2">
                     <span className="font-semibold">Total</span>
                     <span className="font-semibold">
-                      EGP {formatNumber(productsCart?.data.totalCartPrice)} 
+                      <sup className="font-normal text-base ">EGP</sup>{formatNumber(productsCart?.data.totalCartPrice)} 
                     </span>
                   </div>
                   <Link

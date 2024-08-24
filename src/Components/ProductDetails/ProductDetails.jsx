@@ -11,6 +11,7 @@ import {
   addProductsToWishList,
   removeProductFromWishList,
 } from "../../wishListServices";
+import { formatNumber } from "../../currency";
 
 export default function ProductDetails() {
   let { id } = useParams();
@@ -70,11 +71,11 @@ export default function ProductDetails() {
                 />
               </div>
               <div className="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-9/12">
-                <h1 className="mt-6 font-bold text-xl">
+                <h1 className="mt-6 font-bold text-xl mb-1">
                   {productDetails?.title}
                 </h1>
-                <span className="text-gray-500 mt-3">
-                  EGP {productDetails?.price}
+                <span className="text-gray-500 ">
+                <sup className="font-normal text-base ">EGP</sup>{formatNumber(productDetails?.price)}
                 </span>
                 <hr className="my-3" />
 

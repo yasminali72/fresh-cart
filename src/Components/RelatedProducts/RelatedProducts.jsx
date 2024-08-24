@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { bool } from "yup";
 import ProductDetails from "../ProductDetails/ProductDetails";
 import { addProductsToCart } from "../../cartService";
+import { formatNumber } from "../../currency";
 export default function RelatedProducts({ relatedProducts }) {
   var settings = {
     dots: true,
@@ -72,11 +73,11 @@ export default function RelatedProducts({ relatedProducts }) {
                   <div className="px-5 py-3">
                     <Link to={"/productDetails/" + product.id}>
                       {" "}
-                      <h3 className="text-gray-700 line-clamp-1 hover:text-main dark:text-gray-400 dark:hover:text-main">
+                      <h3 className="text-gray-700 line-clamp-1 hover:text-main dark:text-gray-400 dark:hover:text-main mb-1">
                         {product.title}
                       </h3>
                     </Link>
-                    <span className="text-black mt-2 dark:text-gray-400">EGP {product.price}</span>
+                    <span className="text-black mt-2 dark:text-gray-400 "><sup className="font-normal text-base ">EGP</sup>{formatNumber(product.price)}</span>
                   </div>
                 </div>
               </div>

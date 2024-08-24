@@ -46,14 +46,14 @@ export default function WishListProduct({
             <div className="flex">
               <h1 className="text-green-600 font-bold text-xl">
                 <span className="text-gray-400 line-through">
-                  EGP {product.price}
+                  <sup className="font-normal text-base ">EGP</sup>{product.price}
                 </span>{" "}
-                EGP {product.priceAfterDiscount}
+                <sup className="font-normal text-base ">EGP</sup>{product.priceAfterDiscount}
               </h1>
             </div>
           ) : (
             <h1 className="text-green-600 font-bold text-xl">
-              EGP {product.price}
+              <sup className="font-normal text-base ">EGP</sup>{product.price}
             </h1>
           )}
           <p
