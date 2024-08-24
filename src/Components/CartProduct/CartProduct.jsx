@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Bounce, toast } from "react-toastify";
+import { formatNumber } from "../../currency";
 
 export default function CartProduct({
   product,
@@ -78,12 +79,12 @@ export default function CartProduct({
             </span>
           </div>
         </td>
-        <td className="px-2">EGP {product.price}</td>
+        <td className="px-2">EGP {formatNumber(product.price)}</td>
         <td className="py-4">
           <div className="flex items-center">
             <button
-              disabled={isloading || product.count === 1}
-              className="border rounded-md py-1 px-2 mr-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black dark:text-black dark:hover:text-white"
+              disabled={isloading || product.count === 1 ||isloadingPuls}
+              className="border rounded-md py-1 px-2 mr-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black dark:text-black "
               onClick={() =>
                 updateProductCount(product.product.id, product.count - 1)
               }
@@ -107,8 +108,8 @@ export default function CartProduct({
               value={productCount}
             />
             <button
-              disabled={isloadingPuls}
-              className="border rounded-md py-1 px-2 ml-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black  dark:text-black dark:hover:text-white"
+              disabled={isloadingPuls ||isloading}
+              className="border rounded-md py-1 px-2 ml-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black  dark:text-black "
               onClick={() =>
                 updateProductCount(product.product.id, product.count + 1)
               }
@@ -121,7 +122,7 @@ export default function CartProduct({
             </button>
           </div>
         </td>
-        <td className="px-2">EGP {product.price * product.count}</td>
+        <td className="px-2">EGP {formatNumber(product.price * product.count)}</td>
         <td>
           <i
             className="fa-solid fa-trash text-main ml-3"

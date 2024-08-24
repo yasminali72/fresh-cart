@@ -32,7 +32,7 @@ body {
 }
 
 .add {
-  transform: translateY(170%);
+  transform: translateY(180%);
   transition: all 1s;
 }
 .productCard:hover .add {
