@@ -134,7 +134,7 @@ if(data.numOfCartItems>0){
           </div>
         </div>
       ) : (
-        <div className="text-4xl font-bold text-center">
+        <div className="text-4xl font-bold text-center bg-gray-100 rounded-md py-12 dark:text-black dark:bg-gray-200">
           <h1>No Products in Cart</h1>
         </div>
       )}
