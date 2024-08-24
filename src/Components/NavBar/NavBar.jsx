@@ -1,5 +1,3 @@
-
-
 import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -28,7 +26,7 @@ export default function NavBar() {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle("dark", !darkMode);
     localStorage.setItem("darkMode", !darkMode);
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function signOut() {
@@ -36,9 +34,9 @@ export default function NavBar() {
     localStorage.removeItem("token");
     navigate("/login");
   }
-function close(){
-  setIsOpen(false)
-}
+  function close() {
+    setIsOpen(false);
+  }
   return (
     <>
       <div className="fixed flex items-center justify-between py-3 px-8 bg-white dark:bg-gray-800 shadow-md w-full overflow-hidden z-[990] top-0">
@@ -48,34 +46,48 @@ function close(){
           </Link>
         </div>
         {userToken && (
-          <div className="hidden md:block">
+          <div className="hidden xl:block">
             <ul className="links flex items-center md:space-x-4 lg:space-x-8">
               <li>
-                <NavLink to={""} className="">Home</NavLink>
+                <NavLink to={""} className="">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"products"} className="">Products</NavLink>
+                <NavLink to={"products"} className="">
+                  Products
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"categories"} className="">Categories</NavLink>
+                <NavLink to={"categories"} className="">
+                  Categories
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"brands"} className="">Brands</NavLink>
+                <NavLink to={"brands"} className="">
+                  Brands
+                </NavLink>
               </li>
-              
+
               <li>
-                <NavLink to={"wishList"} className="">Wish List</NavLink>
+                <NavLink to={"wishList"} className="">
+                  Wish List
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"cart"} className="">Cart</NavLink>
+                <NavLink to={"cart"} className="">
+                  Cart
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"allorders"} className="">All Orders</NavLink>
+                <NavLink to={"allorders"} className="">
+                  All Orders
+                </NavLink>
               </li>
             </ul>
           </div>
         )}
-        <div className="hidden md:flex md:ms-2 md:me-2 lg:m-0 social-icons space-x-2 text-main dark:text-white">
+        <div className="hidden xl:flex md:ms-2 md:me-2 lg:m-0 social-icons space-x-2 text-main dark:text-white">
           <Link to={""}>
             <i className="fa-brands fa-facebook hover:opacity-75 dark:hover:text-main dark:hover:opacity-100"></i>
           </Link>
@@ -96,7 +108,7 @@ function close(){
           </Link>
         </div>
         <div>
-          <ul className="hidden md:flex space-x-3 justify-center items-center">
+          <ul className="hidden xl:flex space-x-3 justify-center items-center">
             {!userToken && (
               <>
                 <li className="text-center p-2 rounded text-white bg-main hover:bg-thrid hover:text-main">
@@ -126,7 +138,7 @@ function close(){
             </li>
           </ul>
         </div>
-        <div className="md:hidden">
+        <div className="xl:hidden">
           <button
             className="mobile-menu-button border-2 border-gray-300 rounded p-1"
             onClick={() => setIsOpen(!isOpen)}
@@ -148,67 +160,86 @@ function close(){
       <div
         className={
           isOpen
-            ? "mobile-menu bg-[#F4D9D0] dark:bg-gray-700 mt-14 p-1 md:hidden z-50 fixed w-full top-0"
-            : "mobile-menu hidden md:hidden"
+            ? "mobile-menu bg-[#F4D9D0] dark:bg-gray-700 mt-14 p-1 xl:hidden z-50 fixed w-full top-0 "
+            : "mobile-menu hidden xl:hidden"
         }
       >
-        <ul className="space-y-4">
+        <ul className="space-y-4 text-center">
           {userToken && (
             <>
               <li onClick={close}>
-                <NavLink to={""} className="">Home</NavLink>
+                <NavLink to={""} className="">
+                  Home
+                </NavLink>
               </li>
               <li onClick={close}>
-                <NavLink to={"products"} className="">Products</NavLink>
+                <NavLink to={"products"} className="">
+                  Products
+                </NavLink>
               </li>
               <li onClick={close}>
-                <NavLink to={"categories"} className="">Categories</NavLink>
+                <NavLink to={"categories"} className="">
+                  Categories
+                </NavLink>
               </li>
               <li onClick={close}>
-                <NavLink to={"brands"} className="">Brands</NavLink>
+                <NavLink to={"brands"} className="">
+                  Brands
+                </NavLink>
               </li>
-              
+
               <li onClick={close}>
-                <NavLink to={"wishList"} className="">Wish List</NavLink>
+                <NavLink to={"wishList"} className="">
+                  Wish List
+                </NavLink>
               </li>
               <li onClick={close}>
-                <NavLink to={"cart"} className="">Cart</NavLink>
+                <NavLink to={"cart"} className="">
+                  Cart
+                </NavLink>
               </li>
               <li onClick={close}>
-                <NavLink to={"allorders"} className="">All Orders</NavLink>
+                <NavLink to={"allorders"} className="">
+                  All Orders
+                </NavLink>
               </li>
             </>
           )}
           <div className="flex flex-col justify-center items-center  ">
             {!userToken && (
               <>
-                <li onClick={close} className="w-1/5 p-1 my-2 text-center  rounded bg-main hover:bg-thrid hover:text-main">
+                <li
+                  onClick={close}
+                  className="w-1/5 p-1 my-2 text-center  rounded bg-main hover:bg-thrid hover:text-main"
+                >
                   <Link to={"login"}>Login</Link>
                 </li>
-                <li onClick={close} className="w-1/5 p-1 my-2 text-center  rounded bg-main hover:bg-thrid hover:text-main">
+                <li
+                  onClick={close}
+                  className="w-1/5 p-1 my-2 text-center  rounded bg-main hover:bg-thrid hover:text-main"
+                >
                   <Link to={"register"}>Register</Link>
                 </li>
               </>
             )}
             {userToken && (
-              <li onClick={close} className="w-full text-center p-1 rounded bg-main hover:bg-thrid hover:text-main">
+              <li
+                onClick={close}
+                className="w-auto text-center py-1 px-4 rounded text-white bg-main hover:bg-thrid hover:text-main"
+              >
                 <button onClick={signOut}>SignOut</button>
               </li>
             )}
-           
           </div>
-          <li className="w-7 dark:text-gray-400 hover:bg-gray-200 p-1 rounded-lg text-lg">
-              <button
-                onClick={toggleDarkMode}
-                className="text-dark  "
-              >
-                {darkMode ? (
-                  <i className="fa-solid fa-moon"></i>
-                ) : (
-                  <i className="fa-solid fa-sun"></i>
-                )}
-              </button>
-            </li>
+          <li className="w-7 dark:text-gray-400 hover:bg-gray-200 p-1 rounded-lg text-lg mx-auto">
+            <button onClick={toggleDarkMode} className="text-dark  ">
+              {darkMode ? (
+                <i className="fa-solid fa-moon"></i>
+              ) : (
+                <i className="fa-solid fa-sun"></i>
+              )}
+            </button>
+          </li>
           <div className="space-x-2 text-main dark:text-white">
             <Link to={""}>
               <i className="fa-brands fa-facebook hover:opacity-75 dark:hover:text-main"></i>
@@ -234,5 +265,3 @@ function close(){
     </>
   );
 }
-
-
