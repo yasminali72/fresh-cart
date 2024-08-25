@@ -19,7 +19,8 @@ export default function Home() {
   const [idProdWishList, setIdProdWishList] = useState(null);
   const [searchProducts, setSearchProduct] = useState([]);
   const [imagesCategory, setImagesCategory] = useState([]);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
   useEffect(() => {
     getAllCategories();
     getWishList().then(() => getProducts());
@@ -35,10 +36,10 @@ export default function Home() {
 
     let arr = [];
 
-    for (let index = 0; index < 20; index++) {
+    for (let index = 0; index < data.data.length; index++) {
       const element = data.data[index];
 
-      if (element.ratingsAverage > 4.5) {
+      if (element.ratingsAverage > 4) {
         arr.push(element);
       }
     }
@@ -66,6 +67,35 @@ export default function Home() {
     if (value === "") {
       setProducts(searchProducts);
     }
+  }
+  // Calculate the products to display for the current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Determine the total number of pages
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  // Generate array of page numbers
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  // Handle page change when a page number is clicked
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  function paginate(diraction){
+    
+    if(diraction==='next' && currentPage <totalPages){
+      setCurrentPage(currentPage+1)
+        
+    }
+    else if(diraction==='prev' && currentPage <=totalPages){
+      setCurrentPage(currentPage-1)
+      }
   }
 
   async function getAllCategories() {
@@ -114,7 +144,7 @@ export default function Home() {
 
         <SliderCategory imagesCategory={imagesCategory} />
 
-        <div class="max-w-2xl mx-auto mb-7 mt-7">
+        <div class="max-w-2xl mx-auto mb-7 mt-7 px-2 sm:px-0">
           <label
             for="default-search"
             class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
@@ -147,8 +177,8 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-5   justify-center items-center ">
-          {products.map((product, index) => {
+        <div className="grid sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4  gap-5   justify-center items-center ">
+          {currentProducts.map((product, index) => {
             return (
               <Product
                 key={index}
@@ -159,7 +189,42 @@ export default function Home() {
           })}
         </div>
       </div>
+{/* Pagination Controls */}
+{!isLoading && <div className="flex justify-center items-center mt-6 space-x-2">
+  <button
+    onClick={() => paginate("prev")}
+    disabled={currentPage === 1}
+    className={`px-4 py-2 bg-main text-white rounded-lg transition-opacity duration-300 hover:bg-sec hover:text-main
+      ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-main-dark"} 
+       disabled:opacity-50 disabled:cursor-not-allowed`}
+  >
+    Previous
+  </button>
 
+  <div className="flex space-x-1">
+    {pageNumbers.map((number) => (
+      <button
+        key={number}
+        onClick={() => handlePageClick(number)}
+        className={`px-4 py-2 rounded-lg transition-colors duration-300 
+          ${currentPage === number ? "bg-main text-white" : "bg-gray-200 text-gray-900 "} 
+          `}
+      >
+        {number}
+      </button>
+    ))}
+  </div>
+
+  <button
+    onClick={() => paginate("next")}
+    disabled={currentPage === totalPages}
+    className={`px-4 py-2 bg-main text-white rounded-lg transition-opacity duration-300 hover:bg-sec hover:text-main
+      ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-main-dark"} 
+        disabled:opacity-50 disabled:cursor-not-allowed`}
+  >
+    Next
+  </button>
+</div>}
       {isLoading && <Loading />}
     </>
   );
