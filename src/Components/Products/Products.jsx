@@ -245,7 +245,7 @@ export default function Products() {
           
 
 {/* Pagination Controls */}
-{!isLoading && <div className="flex justify-center items-center mt-6 space-x-2">
+{!isLoading && pageNumbers.length>0? <div className="flex justify-center items-center mt-6 space-x-2">
   <button
     onClick={() => paginate("prev")}
     disabled={currentPage === 1}
@@ -279,7 +279,7 @@ export default function Products() {
   >
     Next
   </button>
-</div>}
+</div>:<h1 className="text-center font-bold capitalize">not found this product</h1>}
 
         </div>
 
