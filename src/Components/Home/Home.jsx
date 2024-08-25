@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import Product from "../Product/Product";
 import Loading from "../Loading/Loading";
@@ -21,11 +21,19 @@ export default function Home() {
   const [imagesCategory, setImagesCategory] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
+  const isFirstRender = useRef(true);  // A ref to track the first render
   useEffect(() => {
     getAllCategories();
     getWishList().then(() => getProducts());
+    isFirstRender.current=true
   }, []);
-  
+  useEffect(()=>{
+    if(isFirstRender.current){
+      isFirstRender.current=false
+    }
+    else{
+    window.scrollTo({top:700,behavior:'smooth'})}
+  },[currentPage])
   async function getProducts() {
     setIsLoading(true);
     let { data } = await axios.get(
