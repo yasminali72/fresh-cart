@@ -86,7 +86,9 @@ export default function Home() {
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
+  useEffect(() => {
+    window.scrollTo({ top: 700, behavior: "smooth" });
+  }, [currentPage]);
   function paginate(diraction){
     
     if(diraction==='next' && currentPage <totalPages){
