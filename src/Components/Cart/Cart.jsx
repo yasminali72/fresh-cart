@@ -59,20 +59,20 @@ if(data.numOfCartItems>0){
         <Loading />
       ) : productsCart ? (
         <div className="bg-gray-100 h-auto py-8 dark:bg-Dark">
-          <div className="container mx-auto px-4 dark:bg-Dark">
+          <div className="container mx-auto px-1 sm:px-4 dark:bg-Dark">
             <h1 className="text-2xl font-semibold mb-4">
               Shopping Cart ({productsCart?.numOfCartItems})
             </h1>
             <div className="flex flex-col md:flex-row gap-4 ">
               <div className="md:w-3/4">
-                <div className="bg-white rounded-lg shadow-md p-6 mb-4 dark:bg-Dark ">
+                <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-4 dark:bg-Dark ">
                   <table className="w-full">
-                    <thead>
+                    <thead className="border-b border-gray-300">
                       <tr>
                         <th className="text-left font-semibold">Product</th>
-                        <th className="text-left font-semibold">Price</th>
-                        <th className="text-left font-semibold ">Quantity</th>
-                        <th className="text-left font-semibold">Total</th>
+                        <th className="text-center font-semibold">Price</th>
+                        <th className="text-center font-semibold ">Quantity</th>
+                        <th className="text-center font-semibold">Total</th>
                       </tr>
                     </thead>
                     <tbody>

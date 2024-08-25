@@ -66,7 +66,7 @@ export default function CartProduct({
 
   return (
     <>
-      <tr>
+      <tr className="border-b border-gray-300">
         <td className="py-4 ">
           <div className="flex flex-wrap items-center ">
             <img
@@ -79,12 +79,12 @@ export default function CartProduct({
             </span>
           </div>
         </td>
-        <td className="px-2"><sup className="font-normal text-base text-black dark:text-white">EGP</sup>{formatNumber(product.price)}</td>
+        <td className=" sm:px-2"><sup className="font-normal text-xs sm:text-base text-black dark:text-white">EGP</sup>{formatNumber(product.price)}</td>
         <td className="py-4">
           <div className="flex items-center">
             <button
               disabled={isloading || product.count === 1 ||isloadingPuls}
-              className="border rounded-md py-1 px-2 mr-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black dark:text-black "
+              className="border rounded-md py-1 px-1 sm:px-2 sm:mr-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black dark:text-black "
               onClick={() =>
                 updateProductCount(product.product.id, product.count - 1)
               }
@@ -102,14 +102,14 @@ export default function CartProduct({
               }
               onChange={(e) => setproductCount(e.target.value)}
               type="text"
-              className="text-center w-8 outline-none dark:text-black"
+              className="text-center mx-1 w-8 outline-none dark:text-black"
               maxLength={3}
               min={1}
               value={productCount}
             />
             <button
               disabled={isloadingPuls ||isloading}
-              className="border rounded-md py-1 px-2 ml-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black  dark:text-black "
+              className="border rounded-md py-1 px-1 sm:px-2 sm:ml-2 bg-gray-100 hover:text-white hover:bg-main  disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-black  dark:text-black "
               onClick={() =>
                 updateProductCount(product.product.id, product.count + 1)
               }
@@ -122,15 +122,16 @@ export default function CartProduct({
             </button>
           </div>
         </td>
-        <td className="px-2"><sup className="font-normal text-base text-black dark:text-white">EGP</sup>{formatNumber(product.price * product.count)}</td>
+        <td className="pl-1 sm:px-2"><sup className="font-normal text-xs md:text-base text-black dark:text-white">EGP</sup>{formatNumber(product.price * product.count)}</td>
         <td>
           <i
-            className="fa-solid fa-trash text-main ml-3"
+            className="fa-solid fa-trash text-main sm:ml-3"
             role="button"
             onClick={() => deleteProdectFromCart(product.product._id)}
           ></i>
         </td>
       </tr>
+      
     </>
   );
 }

@@ -36,7 +36,7 @@ export default function Orders() {
     </Helmet>
       {data?.map((order, index) => {
         return (
-          <div key={index} className="my-5">
+          <div key={index} className="my-5 px-3 sm:px-0">
             <div class="flex justify-start item-start space-y-2 flex-col">
               <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
                 Order #{order.id}
@@ -47,7 +47,7 @@ export default function Orders() {
             </div>
             <div class="mt-10 flex flex-col  jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
               <div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-                <div class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+                <div class=" flex flex-col justify-start items-start rounded-md dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
                   <p class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
                     Customer’s Cart
                   </p>
