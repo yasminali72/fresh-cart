@@ -36,11 +36,11 @@ export default function Brand({ brand }) {
 
       {showModal && (
         <div
-          className="fixed  inset-0 bg-black bg-opacity-25 flex justify-center  z-[999]"
+          className="fixed  inset-0 bg-black bg-opacity-25 flex justify-center  z-[999] "
           onClick={close}
         >
           <div
-            className="relative flex flex-col  bg-white  w-1/3 h-fit rounded-md mt-5 "
+            className="relative flex flex-col  bg-white lg:w-1/3 h-fit rounded-md mt-5 "
             onClick={(e) => e.stopPropagation()}
           >
             <div className="close   flex justify-end p-2">
