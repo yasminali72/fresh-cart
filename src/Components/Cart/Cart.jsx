@@ -12,6 +12,7 @@ export default function Cart() {
   
   const [productsCart, setProductsCart] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const[clearBtn,setClearBtn]=useState(true)
   useEffect(() => {
     getUserCart();
   }, []);
@@ -32,6 +33,7 @@ if(data.numOfCartItems>0){
 }
  else{
   setProductsCart(null)
+  
  }   
 
     setIsLoading(false);
@@ -47,6 +49,7 @@ if(data.numOfCartItems>0){
       }
     );
     setProductsCart(null);
+    
   }
 
   return (
@@ -63,6 +66,8 @@ if(data.numOfCartItems>0){
             <h1 className="text-2xl font-semibold mb-4">
               Shopping Cart ({productsCart?.numOfCartItems})
             </h1>
+{          productsCart?.numOfCartItems===0&&  <button className="bg-main p-2 rounded-md text-white text-xl hover:bg-sec hover:text-main mb-4"><Link to={'/Products'}><i className="fa-solid fa-arrow-left-long"></i> Back to Products</Link></button>
+}            { productsCart?.numOfCartItems>0 && <div>
             <div className="flex flex-col md:flex-row gap-4 ">
               <div className="md:w-3/4">
                 <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-4 dark:bg-Dark ">
@@ -124,18 +129,20 @@ if(data.numOfCartItems>0){
               </div>
             </div>
             <div className=" text-center">
-              <button
+             <button
                 onClick={clearCart}
                 className="bg-red-600 hover:bg-red-500 focus:shadow-md focus:shadow-red-200 p-2 mt-5 rounded-md text-white "
               >
                 Clear Cart
               </button>
-            </div>
+            </div></div>}
           </div>
         </div>
       ) : (
-        <div className="text-4xl font-bold text-center bg-gray-100 rounded-md py-12 dark:text-black dark:bg-gray-200">
-          <h1>No Products in Cart</h1>
+        <div className=" bg-gray-100 rounded-md py-12 dark:text-black dark:bg-gray-200">
+          <h1 className="text-center text-4xl   mb-3 font-bold">No Products in Cart</h1>
+            <button className="ms-3 bg-main p-2 rounded-md text-white text-xl hover:bg-sec hover:text-main mb-4"><Link to={'/Products'}><i className="fa-solid fa-arrow-left-long"></i> Back to Products</Link></button>
+
         </div>
       )}
     </>

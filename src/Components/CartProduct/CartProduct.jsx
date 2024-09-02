@@ -23,7 +23,7 @@ export default function CartProduct({
     );
 
     setProductsCart(data);
-
+console.log(data);
     toast.success("Product has been removed sucessfully!", {
       position: "top-right",
       autoClose: 2000,
