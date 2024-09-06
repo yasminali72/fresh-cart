@@ -81,7 +81,7 @@ export default function NavBar() {
               </li>
               <li>
                 <NavLink to={"allorders"} className="">
-                  All Orders
+                  Orders
                 </NavLink>
               </li>
             </ul>
@@ -200,7 +200,7 @@ export default function NavBar() {
               </li>
               <li onClick={close}>
                 <NavLink to={"allorders"} className="">
-                  All Orders
+                  Orders
                 </NavLink>
               </li>
             </>
