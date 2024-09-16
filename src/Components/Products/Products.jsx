@@ -95,7 +95,7 @@ const token=localStorage.getItem('token')
         <title>Products</title>
       </Helmet>
       <>
-        <div className="h-[100vh]">
+        <div className="">
           <div className="max-w-xl mx-auto mb-7 px-2 sm:px-0">
             <label
               htmlFor="default-search"

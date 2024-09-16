@@ -69,21 +69,21 @@ export default function NavBar() {
                 </NavLink>
               </li>
 
-              <li>
+            { userToken && <li>
                 <NavLink to={"wishList"} className="">
                   Wish List
                 </NavLink>
-              </li>
-              <li>
+              </li>}
+            {userToken &&  <li>
                 <NavLink to={"cart"} className="">
                   Cart
                 </NavLink>
-              </li>
-              <li>
+              </li>}
+             {userToken && <li>
                 <NavLink to={"allorders"} className="">
                   Orders
                 </NavLink>
-              </li>
+              </li>}
             </ul>
           </div>
         
@@ -188,21 +188,21 @@ export default function NavBar() {
                 </NavLink>
               </li>
 
-              <li onClick={close}>
+          {userToken &&    <li onClick={close}>
                 <NavLink to={"wishList"} className="">
                   Wish List
                 </NavLink>
-              </li>
-              <li onClick={close}>
+              </li>}
+             {userToken && <li onClick={close}>
                 <NavLink to={"cart"} className="">
                   Cart
                 </NavLink>
-              </li>
-              <li onClick={close}>
+              </li>}
+             {userToken && <li onClick={close}>
                 <NavLink to={"allorders"} className="">
                   Orders
                 </NavLink>
-              </li>
+              </li>}
             </>
           
           <div className="flex flex-col justify-center items-center  ">
