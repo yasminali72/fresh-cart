@@ -79,7 +79,7 @@ export default function Product({ product, idProdWishList }) {
           </div>
         </div>
       </div>
-      {alart &&<div className="fixed top-20 start-2 w-1/4 p-2 bg-sec text-main rounded capitalize ">{alart} , <Link to={'/login'} className="underline">login here</Link>
+      {alart &&<div className="fixed top-20 start-2 w-72 p-3 bg-sec text-main rounded capitalize ">{alart} , <Link to={'/login'} className="underline">login here</Link>
      <i className="fa-solid fa-xmark absolute end-1 top-1 cursor-pointer"onClick={()=>{
         setAlart('')}}></i></div>
       }

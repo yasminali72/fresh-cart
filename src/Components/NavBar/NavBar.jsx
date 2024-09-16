@@ -165,7 +165,7 @@ export default function NavBar() {
         }
       >
         <ul className="space-y-4 text-center">
-          {userToken && (
+          
             <>
               <li onClick={close}>
                 <NavLink to={""} className="">
@@ -204,7 +204,7 @@ export default function NavBar() {
                 </NavLink>
               </li>
             </>
-          )}
+          
           <div className="flex flex-col justify-center items-center  ">
             {!userToken && (
               <>
