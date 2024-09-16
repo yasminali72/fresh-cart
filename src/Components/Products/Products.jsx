@@ -13,9 +13,14 @@ export default function Products() {
   const [searchProducts, setSearchProduct] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
-
+const token=localStorage.getItem('token')
   useEffect(() => {
-    getWishList().then(() => getAllProducts());
+    if(token){
+      getWishList().then(() => getAllProducts());
+    }
+    else{
+      getAllProducts()
+    }
   }, []);
 
   async function getAllProducts() {
@@ -35,7 +40,8 @@ export default function Products() {
           token: localStorage.getItem("token"),
         },
       })
-      .catch(() => setIsLoading(false));
+      .catch((err) => {setIsLoading(false);
+      });
 
     setIdProdWishList(data.data);
   }
@@ -89,7 +95,7 @@ export default function Products() {
         <title>Products</title>
       </Helmet>
       <>
-        <div>
+        <div className="h-[100vh]">
           <div className="max-w-xl mx-auto mb-7 px-2 sm:px-0">
             <label
               htmlFor="default-search"

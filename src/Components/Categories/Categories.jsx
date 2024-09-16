@@ -58,7 +58,7 @@ let {data,isLoading}=useQuery({
         <title>Categories</title>
       </Helmet>
 
-      <div>
+      <div className="h-[100vh]">
         {isLoading ? (
           <Loading />
         ) : (

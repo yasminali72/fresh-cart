@@ -45,7 +45,7 @@ export default function NavBar() {
             <i className="fa-solid fa-cart-shopping"></i> FreshCart
           </Link>
         </div>
-        {userToken && (
+       
           <div className="hidden xl:block">
             <ul className="links flex items-center md:space-x-4 lg:space-x-8">
               <li>
@@ -86,7 +86,7 @@ export default function NavBar() {
               </li>
             </ul>
           </div>
-        )}
+        
         <div className="hidden xl:flex md:ms-2 md:me-2 lg:m-0 social-icons space-x-2 text-main dark:text-white">
           <Link to={""}>
             <i className="fa-brands fa-facebook hover:opacity-75 dark:hover:text-main dark:hover:opacity-100"></i>

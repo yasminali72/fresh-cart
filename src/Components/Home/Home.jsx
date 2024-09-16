@@ -22,9 +22,18 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
   const isFirstRender = useRef(true);  // A ref to track the first render
+
+  const token=localStorage.getItem('token')
+
   useEffect(() => {
     getAllCategories();
-    getWishList().then(() => getProducts());
+    if(token){
+      getWishList().then(() => getProducts());
+          }
+          else{
+            
+          getProducts()
+          }
     isFirstRender.current=true
   }, []);
   useEffect(()=>{

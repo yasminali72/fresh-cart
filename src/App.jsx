@@ -41,10 +41,8 @@ const queryClient=new QueryClient()
         {
           index: true,
           element: (
-            <ProductedRoute>
-              {" "}
+            
               <Home />
-            </ProductedRoute>
           ),
         },
         {
@@ -66,25 +64,24 @@ const queryClient=new QueryClient()
         {
           path: "products",
           element: (
-            <ProductedRoute>
-              <Products />{" "}
-            </ProductedRoute>
+           
+              <Products />
           ),
         },
         {
           path: "brands",
           element: (
-            <ProductedRoute>
+           
               <Brands />
-            </ProductedRoute>
+            
           ),
         },
         {
           path: "categories",
           element: (
-            <ProductedRoute>
+           
               <Categories />
-            </ProductedRoute>
+           
           ),
         },
         {

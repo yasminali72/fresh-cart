@@ -9,6 +9,9 @@ import {
 } from "../../wishListServices";
 import { Bounce, toast } from "react-toastify";
 export default function Product({ product, idProdWishList }) {
+  // if dont login
+  const [alart,setAlart]=useState('')
+
   const isProductInWishlist = idProdWishList?.some(
     (prod) => prod._id === product._id
   );
@@ -48,7 +51,11 @@ export default function Product({ product, idProdWishList }) {
                 className={`fa-solid fa-heart text-3xl  ${
                   isActive ? "text-main" : "text-gray-400"
                 }`}
-                onClick={() => handleClick(product._id)}
+                onClick={() => {handleClick(product._id)
+                if (!localStorage.getItem('token')) {
+                  setAlart('please login first')
+                }
+                }}
                 role="button"
               ></i>
             </div>
@@ -61,7 +68,10 @@ export default function Product({ product, idProdWishList }) {
             </span>
 
             <button
-              onClick={() => addProductsToCart(product.id)}
+              onClick={() => {addProductsToCart(product.id)
+                if (!localStorage.getItem('token')) {
+                  setAlart('please login first')
+                }}}
               className="add w-full mt-2 text-white bg-main hover:bg-sec hover:text-main focus:ring-4 focus:ring-thrid font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-main dark:hover:bg-sec dark:focus:ring-thrid"
             >
               <i className="fa-solid fa-cart-shopping me-1 "></i> Add to cart
@@ -69,6 +79,10 @@ export default function Product({ product, idProdWishList }) {
           </div>
         </div>
       </div>
+      {alart &&<div className="fixed top-20 start-2 w-1/4 p-2 bg-sec text-main rounded capitalize ">{alart} , <Link to={'/login'} className="underline">login here</Link>
+     <i className="fa-solid fa-xmark absolute end-1 top-1 cursor-pointer"onClick={()=>{
+        setAlart('')}}></i></div>
+      }
     </>
   );
 }

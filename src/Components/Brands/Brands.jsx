@@ -52,7 +52,7 @@ function paginate(diraction){
       <Helmet>
         <title>Brands</title>
       </Helmet>
-      <div>
+      <div className="h-[100vh]">
         <div className=" text-center   ">
           <h1 className="font-bold text-main text-4xl">All Brands</h1>
         </div>
