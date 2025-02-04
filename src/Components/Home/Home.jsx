@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import Product from "../Product/Product";
 import Loading from "../Loading/Loading";
-import WishList from "../WishList/WishList";
 import img1 from "/src/assets/images/grocery-banner.png";
 import img2 from "/src/assets/images/grocery-banner-2.jpeg";
 import img3 from "/src/assets/images/slider-2.jpeg";
