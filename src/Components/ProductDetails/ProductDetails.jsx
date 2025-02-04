@@ -12,9 +12,11 @@ import {
   removeProductFromWishList,
 } from "../../wishListServices";
 import { formatNumber } from "../../currency";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 export default function ProductDetails() {
   let { id } = useParams();
+ const {userToken}= useContext(AuthContext)
   const [productDetails, setProductDetail] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -117,7 +119,7 @@ export default function ProductDetails() {
                 </div>
                 <div className="flex items-center mt-6">
                   <button
-                    onClick={() => addProductsToCart(productDetails.id)}
+                    onClick={() =>{addProductsToCart(productDetails.id,userToken)}}
                     className="px-8 py-2 bg-main hover:bg-sec hover:text-main text-white text-sm font-medium rounded "
                   >
                     Order Now

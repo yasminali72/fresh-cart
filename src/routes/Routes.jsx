@@ -89,9 +89,9 @@ import Home from "../Components/Home/Home";
         {
           path: "productDetails/:id",
           element: (
-            <ProductedRoute>
+           
               <ProductDetails />
-            </ProductedRoute>
+           
           ),
         },
         {
