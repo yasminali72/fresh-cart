@@ -13,6 +13,7 @@ import {
 } from "../../wishListServices";
 import { formatNumber } from "../../currency";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { Bounce, toast } from "react-toastify";
 
 export default function ProductDetails() {
   let { id } = useParams();
@@ -49,6 +50,7 @@ export default function ProductDetails() {
 
   const [isActive, setIsActive] = useState(false);
   const handleClick = async (productId) => {
+   if (userToken) {
     setIsActive((prev) => !prev); // Toggle the active state
 
     if (!isActive) {
@@ -56,6 +58,20 @@ export default function ProductDetails() {
     } else {
       await removeProductFromWishList(productId);
     }
+   }
+   else{
+    toast.error('Please Login First', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+   }
   };
 
   return (

@@ -8,7 +8,9 @@ import {
   removeProductFromWishList,
 } from "../../wishListServices";
 import { Bounce, toast } from "react-toastify";
+import { AuthContext } from "../../Contexts/AuthContext";
 export default function Product({ product, idProdWishList }) {
+ const {userToken}= useContext(AuthContext)
   // if dont login
   const [alart,setAlart]=useState('')
 
@@ -20,6 +22,7 @@ export default function Product({ product, idProdWishList }) {
   const [isActive, setIsActive] = useState(isProductInWishlist);
 
   const handleClick = async (productId) => {
+   if (userToken) {
     setIsActive((prev) => !prev); // Toggle the active state
 
     if (!isActive) {
@@ -27,6 +30,21 @@ export default function Product({ product, idProdWishList }) {
     } else {
       await removeProductFromWishList(productId);
     }
+   }
+else{
+  toast.error('Please Login First', {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  });
+}
+    
   };
 
   return (
