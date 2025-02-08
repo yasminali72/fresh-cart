@@ -32,7 +32,7 @@ const navigate=useNavigate()
       ) : products.length === 0 ? (
 <div className="flex flex-col   items-center">
 <h1 className=" fs-1 fw-bold">Not Found Products</h1>
-<button onClick={()=>navigate(-1)} className="bg-main text-white px-2 py-1 rounded-md text-bold mt-2 hover:text-main hover:bg-white border border-main ms-6">back to home</button>
+<button onClick={()=>navigate(-1)} className="bg-main text-white px-2 py-1 rounded-md text-bold mt-2 hover:text-main hover:bg-white border border-main ">back to home</button>
 </div>       
       ) : (
         <div>
