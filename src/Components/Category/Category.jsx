@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
+import { Link } from "react-router-dom";
 
 export default function Category({ category }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,9 +28,9 @@ export default function Category({ category }) {
         <div className="w-full h-80 ">
           <img className="w-full h-full rounded-t-lg" src={category.image} />
         </div>
-        <h1 className=" text-2xl font-bold text-main py-5 w-full text-center ">
+        <Link to={`/specificProducts/${category._id}`} className=" text-2xl font-bold text-black py-5 w-full text-center border-t-2 border-gray hover:text-main dark:text-white dark:hover:text-main ">
           {category.name}
-        </h1>
+        </Link>
       </div>
       {showModal && (
         <div
@@ -55,6 +56,7 @@ export default function Category({ category }) {
                   {category.name}
                 </h1>
                 <p>{category.slug}</p>
+                <Link to={`/specificProducts/${category._id}`} className="text-main underline  capitalize">show products</Link>
               </div>
               <img src={category.image} alt="" className="w-32 h-32"/>
             </div>

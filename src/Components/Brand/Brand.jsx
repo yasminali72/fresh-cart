@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Brand({ brand }) {
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setshowModal] = useState(false);
-
+const navigate=useNavigate()
   useEffect(() => {
     if (isLoading) {
       setTimeout(() => {
@@ -21,16 +22,16 @@ export default function Brand({ brand }) {
   return (
     <div>
       <div
-        onClick={() => {
-          setIsLoading(true);
-        }}
+        
         id={brand._id}
-        className="  space-y-6 my-5 px-5 border mx-5  hover:shadow-3xl hover:shadow-four rounded-lg p-5 "
+        className="  space-y-6 my-5 py-5 border mx-5  hover:shadow-3xl hover:shadow-four rounded-lg  "
         role="button"
       >
         <div className="w-full h-full flex flex-col text-center   ">
-          <img src={brand.image} />
-          <h1 className=" text-lg  ">{brand.name}</h1>
+          <img src={brand.image} onClick={() => {
+          setIsLoading(true);
+        }}/>
+          <Link className=" text-lg  border-t-2 borde-gray py-1 hover:text-main " to={`/specificProducts/${brand._id}`}>{brand.name}</Link>
         </div>
       </div>
 
@@ -58,6 +59,8 @@ export default function Brand({ brand }) {
                   {brand.name}
                 </h1>
                 <p>{brand.slug}</p>
+                <Link to={`/specificProducts/${brand._id}`} className="text-main underline  capitalize">show products</Link>
+
               </div>
               <img src={brand.image} alt="" />
             </div>

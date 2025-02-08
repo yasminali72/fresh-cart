@@ -18,6 +18,8 @@ import VerifyResetCode from "../Components/VerifyResetCode/VerifyResetCode";
 import WishList from "../Components/WishList/WishList";
 import Payment from "../Components/Payment/Payment";
 import Home from "../Components/Home/Home";
+import BrandProducts from "../Components/SpecificProducts/SpecificProducts";
+import SpecificProducts from "../Components/SpecificProducts/SpecificProducts";
 
   const router = createBrowserRouter([
     {
@@ -49,11 +51,15 @@ import Home from "../Components/Home/Home";
         },
         {
           path: "products",
-          element: (
-           
-              <Products />
-          ),
+          element:<Products/>,
+        
         },
+        {
+          path: "specificProducts/:id",
+          element:<SpecificProducts/>,
+        
+        },
+
         {
           path: "brands",
           element: (
