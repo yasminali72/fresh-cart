@@ -130,9 +130,9 @@ export default function NavBar() {
                 className=" dark:text-gray-400  "
               >
                 {darkMode ? (
-                  <i className="fa-solid fa-moon  hover:bg-gray-300 px-2 py-1 rounded text-xl"></i>
+                  <i className="fa-solid fa-sun  hover:bg-gray-300 px-2 py-1 rounded text-xl"></i>
                 ) : (
-                  <i className="fa-solid fa-sun hover:bg-gray-100 px-2 py-1 rounded text-xl"></i>
+                  <i className="fa-solid fa-moon hover:bg-gray-100 px-2 py-1 rounded text-xl"></i>
                 )}
               </button>
             </li>
@@ -234,9 +234,9 @@ export default function NavBar() {
           <li className="w-7 dark:text-gray-400 hover:bg-gray-200 p-1 rounded-lg text-lg mx-auto">
             <button onClick={toggleDarkMode} className="text-dark  ">
               {darkMode ? (
-                <i className="fa-solid fa-moon"></i>
-              ) : (
                 <i className="fa-solid fa-sun"></i>
+              ) : (
+                <i className="fa-solid fa-moon"></i>
               )}
             </button>
           </li>
