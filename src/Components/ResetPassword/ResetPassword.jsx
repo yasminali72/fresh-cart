@@ -124,13 +124,13 @@ export default function ResetPassword() {
             </button>
             {errorMsg && (
               <p className="text-red-500">
-                <i class="fa-solid fa-circle-exclamation me-1"></i>
+                <i className="fa-solid fa-circle-exclamation me-1"></i>
                 {errorMsg}
               </p>
             )}
             {sucessMsg && (
               <p className="text-green-500">
-                <i class="fa-solid fa-circle-check"></i>
+                <i className="fa-solid fa-circle-check"></i>
                 {sucessMsg}
               </p>
             )}

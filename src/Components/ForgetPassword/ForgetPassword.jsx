@@ -76,13 +76,13 @@ export default function ForgetPassword() {
           )}
           {errorMsg && (
             <p className="text-red-500">
-              <i class="fa-solid fa-circle-exclamation"></i>
+              <i className="fa-solid fa-circle-exclamation"></i>
               {errorMsg}
             </p>
           )}
           {sucessMsg && (
             <p className="text-green-500 ">
-              <i class="fa-solid fa-circle-check "></i>
+              <i className="fa-solid fa-circle-check "></i>
               {sucessMsg}
             </p>
           )}

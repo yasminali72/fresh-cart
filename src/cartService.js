@@ -14,7 +14,6 @@ export async function addProductsToCart(productId,userToken) {
       },
     }
   );
-  console.log(data);
   toast.success(data.message, {
     position: "top-right",
     autoClose: 2000,

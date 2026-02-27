@@ -21,8 +21,11 @@ const navigate=useNavigate()
     let { data } = await axios.get(
       "https://ecommerce.routemisr.com/api/v1/products"
     );
-    setProducts(data.data.filter((product) => product.brand._id == id || product.category._id == id));
-    console.log(data.data);
+    setProducts(
+      data.data.filter(
+        (product) => product.brand._id == id || product.category._id == id
+      )
+    );
     setIsLoading(false);
   }
   return (
