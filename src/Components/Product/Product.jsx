@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import RatingStar from "../RatingStar/RatingStar";
-import { Await, Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import { addProductsToCart } from "../../cartService";
 import {
   addProductsToWishList,
@@ -9,10 +8,11 @@ import {
 } from "../../wishListServices";
 import { Bounce, toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthContext";
+
 export default function Product({ product, idProdWishList }) {
- const {userToken}= useContext(AuthContext)
+  const { userToken } = useContext(AuthContext);
   // if dont login
-  const [alart,setAlart]=useState('')
+  const [alert, setAlert] = useState("");
 
   const isProductInWishlist = idProdWishList?.some(
     (prod) => prod._id === product._id
@@ -22,29 +22,27 @@ export default function Product({ product, idProdWishList }) {
   const [isActive, setIsActive] = useState(isProductInWishlist);
 
   const handleClick = async (productId) => {
-   if (userToken) {
-    setIsActive((prev) => !prev); // Toggle the active state
+    if (userToken) {
+      setIsActive((prev) => !prev); // Toggle the active state
 
-    if (!isActive) {
-      await addProductsToWishList(productId);
+      if (!isActive) {
+        await addProductsToWishList(productId);
+      } else {
+        await removeProductFromWishList(productId);
+      }
     } else {
-      await removeProductFromWishList(productId);
+      toast.error("Please Login First", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     }
-   }
-else{
-  toast.error('Please Login First', {
-    position: "top-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    transition: Bounce,
-  });
-}
-    
   };
 
   return (
@@ -69,10 +67,11 @@ else{
                 className={`fa-solid fa-heart text-3xl  ${
                   isActive ? "text-main" : "text-gray-400"
                 }`}
-                onClick={() => {handleClick(product._id)
-                if (!localStorage.getItem('token')) {
-                  setAlart('please login first')
-                }
+                onClick={() => {
+                  handleClick(product._id);
+                  if (!userToken) {
+                    setAlert("please login first");
+                  }
                 }}
                 role="button"
               ></i>
@@ -82,14 +81,19 @@ else{
             <RatingStar rating={product.ratingsAverage} />
 
             <span className="text-2xl font-bold text-gray-900 dark:text-white">
-             <sup className="font-medium text-base text-black dark:text-white">EGP</sup>{product.price}
+              <sup className="font-medium text-base text-black dark:text-white">
+                EGP
+              </sup>
+              {product.price}
             </span>
 
             <button
-              onClick={() => {addProductsToCart(product.id)
-                if (!localStorage.getItem('token')) {
-                  setAlart('please login first')
-                }}}
+              onClick={() => {
+                addProductsToCart(product.id, userToken);
+                if (!userToken) {
+                  setAlert("please login first");
+                }
+              }}
               className="add w-full mt-2 text-white bg-main hover:bg-sec hover:text-main focus:ring-4 focus:ring-thrid font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-main dark:hover:bg-sec dark:focus:ring-thrid"
             >
               <i className="fa-solid fa-cart-shopping me-1 "></i> Add to cart
@@ -97,10 +101,20 @@ else{
           </div>
         </div>
       </div>
-      {alart &&<div className="fixed top-20 start-2 w-72 p-3 bg-sec text-main rounded capitalize ">{alart} , <Link to={'/login'} className="underline">login here</Link>
-     <i className="fa-solid fa-xmark absolute end-1 top-1 cursor-pointer"onClick={()=>{
-        setAlart('')}}></i></div>
-      }
+      {alert && (
+        <div className="fixed top-20 start-2 w-72 p-3 bg-sec text-main rounded capitalize ">
+          {alert} ,{" "}
+          <Link to={"/login"} className="underline">
+            login here
+          </Link>
+          <i
+            className="fa-solid fa-xmark absolute end-1 top-1 cursor-pointer"
+            onClick={() => {
+              setAlert("");
+            }}
+          ></i>
+        </div>
+      )}
     </>
   );
 }
