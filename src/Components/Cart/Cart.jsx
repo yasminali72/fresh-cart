@@ -12,7 +12,7 @@ export default function Cart() {
   
   const [productsCart, setProductsCart] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const[clearBtn,setClearBtn]=useState(true)
+
   useEffect(() => {
     getUserCart();
   }, []);

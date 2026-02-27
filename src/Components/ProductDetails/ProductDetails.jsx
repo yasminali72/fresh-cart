@@ -98,37 +98,37 @@ export default function ProductDetails() {
                 <hr className="my-3" />
 
                 <div className="mt-3">
-                  <label className="text-gray-700 text-sm dark:text-gray-400" for="count">
+                  <label className="text-gray-700 text-sm dark:text-gray-400" htmlFor="count">
                     Rating:
                   </label>
                   <RatingStar rating={productDetails?.ratingsAverage ?? 0} />
                 </div>
                 <div className="mt-3">
-                  <label className="text-gray-700 text-sm dark:text-gray-400" for="count">
+                  <label className="text-gray-700 text-sm dark:text-gray-400" htmlFor="count">
                     Description:
                   </label>
                   <h1>{productDetails?.description}</h1>
                 </div>
                 <div className="mt-3">
-                  <label className="text-gray-700 text-sm dark:text-gray-400" for="count">
+                  <label className="text-gray-700 text-sm dark:text-gray-400" htmlFor="count">
                     Category:
                   </label>
                   <h1>{productDetails?.category.name}</h1>
                 </div>
                 <div className="mt-3">
-                  <label className="text-gray-700 text-sm dark:text-gray-400" for="count">
+                  <label className="text-gray-700 text-sm dark:text-gray-400" htmlFor="count">
                     subcategory:
                   </label>
                   <h1>{productDetails?.subcategory[0].name}</h1>
                 </div>
                 <div className="mt-3">
-                  <label className="text-gray-700 text-sm dark:text-gray-400" for="count">
+                  <label className="text-gray-700 text-sm dark:text-gray-400" htmlFor="count">
                     Brand:
                   </label>
                   <h1>{productDetails?.brand.name}</h1>
                 </div>
                 <div className="mt-3">
-                  <label className="text-gray-700 text-sm dark:text-gray-400" for="count">
+                  <label className="text-gray-700 text-sm dark:text-gray-400" htmlFor="count">
                     Quantity:
                   </label>
                   <h1>{productDetails?.quantity}</h1>
